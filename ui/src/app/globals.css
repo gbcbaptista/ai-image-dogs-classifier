@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #111827;
+  --color-card: #1f2937;
+  --color-primary: #f9fafb;
+  --color-secondary: #9ca3af;
+  --color-accent: #38bdf8;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  --font-family-poppins: "Poppins", sans-serif;
+}
+
+body {
+  color: theme(--color-primary);
+  font-family: theme(--font-family-poppins);
+}
+
+.text-primary {
+  color: theme(--color-primary);
+}
+
+.text-secondary {
+  color: theme(--color-secondary);
+}
+
+.text-accent {
+  color: theme(--color-accent);
+}
+
+.text-success {
+  color: theme(--color-success);
+}
+
+.text-warning {
+  color: theme(--color-warning);
+}
+
+.text-error {
+  color: theme(--color-error);
+}
+
+.drag-over {
+  border-color: theme(--color-accent);
+  background-color: rgba(56, 189, 248, 0.1);
+}
+
+/* Loading Animation */
+.loading-spinner {
+  border: 3px solid theme(--color-secondary);
+  border-top: 3px solid theme(--color-accent);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Confidence Bar Animation */
+.confidence-bar {
+  transition: width 0.8s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* ::-webkit-scrollbar-track {
+  background: theme(--color-car);
+} */
+
+::-webkit-scrollbar-thumb {
+  background: theme(--color-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.8);
+}
+
+/* Responsive Image Upload */
+.upload-area {
+  min-height: 300px;
+  background-image: url("data:image/svg+xml,%3csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(2) rotate(0)'%3e%3crect x='0' y='0' width='100%25' height='100%25' fill='%23111827'/%3e%3cpath d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' stroke='%23374151' fill='none'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23a)'/%3e%3c/svg%3e");
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .upload-area {
+    min-height: 250px;
+  }
+
+  .loading-spinner {
+    width: 30px;
+    height: 30px;
+  }
+}
