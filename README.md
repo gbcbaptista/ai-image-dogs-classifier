@@ -13,7 +13,7 @@ A complete end-to-end solution for dog breed classification using artificial int
 | Step | Component      | Status         |
 | ---- | -------------- | -------------- |
 | 1    | Model Training | ✅ Completed   |
-| 2    | Backend        | 🔄 In Progress |
+| 2    | API            | 🔄 In Progress |
 | 3    | Frontend       | ⏳ Pending     |
 | 4    | Deploy AWS     | ⏳ Pending     |
 

@@ -6,13 +6,13 @@ import os
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
 DATASET_DIR = 'data/dataset'
-NUM_CLASSES = len(os.listdir(DATASET_DIR))
+NUM_CLASSES = len([d for d in os.listdir(DATASET_DIR) if os.path.isdir(os.path.join(DATASET_DIR, d))])
 EPOCHS = 10
 
 print("Loading and preparing the data...")
 
 
-train_dataset = keras.preprocessing.image_dataset_from_directory(
+train_dataset = keras.utils.image_dataset_from_directory(
   DATASET_DIR,
   validation_split=0.2,
   subset="training",
@@ -22,7 +22,7 @@ train_dataset = keras.preprocessing.image_dataset_from_directory(
   label_mode='categorical'
 )
 
-validation_dataset = keras.preprocessing.image_dataset_from_directory(
+validation_dataset = keras.utils.image_dataset_from_directory(
   DATASET_DIR,
   validation_split=0.2,
   subset="validation",
@@ -36,7 +36,7 @@ class_names = train_dataset.class_names
 with open('labels.json', 'w') as f:
     json.dump(class_names, f)
 print(f"Classes: {class_names}")
-print("File 'labels.json' successfully save")
+print("File 'labels.json' successfully saved")
 
 AUTOTUNE = tf.data.AUTOTUNE
 train_dataset = train_dataset.prefetch(buffer_size=AUTOTUNE)
@@ -58,6 +58,12 @@ inputs = keras.Input(shape=(224, 224, 3))
 x = preprocess_input(inputs)
 x = base_model(x, training=False)
 x = keras.layers.GlobalAveragePooling2D()(x)
+x = keras.layers.BatchNormalization()(x)
+x = keras.layers.Dropout(0.3)(x)
+x = keras.layers.Dense(256, activation='relu')(x)
+x = keras.layers.BatchNormalization()(x)
+x = keras.layers.Dropout(0.4)(x)
+x = keras.layers.Dense(128, activation='relu')(x)
 x = keras.layers.Dropout(0.2)(x)
 outputs = keras.layers.Dense(NUM_CLASSES, activation='softmax')(x)
 

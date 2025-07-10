@@ -4,13 +4,11 @@ import pandas as pd
 
 CHOSEN_BREEDS = [
     'beagle',
-    'pug',
     'chihuahua',
     'german_shepherd',
     'golden_retriever',
+    'pug',
     'siberian_husky',
-    'poodle',
-    'bulldog'
 ]
 
 ORIGINAL_TRAIN_DIR = 'data/dog-breed-identification/train'
