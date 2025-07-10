@@ -300,3 +300,5 @@ The prediction endpoint follows this workflow:
   "siberian_husky"
 ]
 ```
+
+---

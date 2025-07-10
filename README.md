@@ -13,8 +13,8 @@ A complete end-to-end solution for dog breed classification using artificial int
 | Step | Component      | Status         |
 | ---- | -------------- | -------------- |
 | 1    | Model Training | ✅ Completed   |
-| 2    | API            | 🔄 In Progress |
-| 3    | Frontend       | ⏳ Pending     |
+| 2    | API            | ✅ Completed   |
+| 3    | Frontend       | 🔄 In Progress |
 | 4    | Deploy AWS     | ⏳ Pending     |
 
 ## 🎯 Project Overview
@@ -23,14 +23,12 @@ This project implements a full-stack AI-powered application that can classify do
 
 ## 🐕 Supported Dog Breeds
 
-The AI model can classify the following 8 dog breeds:
+The AI model can classify the following 6 dog breeds:
 
 - **Beagle** - Friendly hunting hound
-- **Bulldog** - Muscular, wrinkled companion
 - **Chihuahua** - Tiny but mighty toy breed
 - **German Shepherd** - Intelligent working dog
 - **Golden Retriever** - Gentle, family-friendly retriever
-- **Poodle** - Elegant, hypoallergenic breed
 - **Pug** - Charming, compact companion
 - **Siberian Husky** - Athletic, cold-weather sled dog
 
@@ -43,7 +41,15 @@ ai-image-dogs-classifier/
 │   ├── train.py           # Model training script
 │   ├── labels.json        # Class labels mapping
 │   └── README.md          # Model documentation
-└── README.md              # This file
+├── api/                    # REST API Backend
+│   ├── main.py            # FastAPI application
+│   ├── requirements.txt   # Python dependencies
+│   ├── Dockerfile         # Container configuration
+│   ├── model/            # Model artifacts
+│   │   ├── dog_classifier.keras
+│   │   └── labels.json
+│   └── README.md         # API documentation
+└── README.md             # This file
 ```
 
 ## 🚀 Technology Stack
@@ -52,7 +58,13 @@ ai-image-dogs-classifier/
 
 - **TensorFlow/Keras**: Deep learning framework
 - **MobileNetV2**: Transfer learning base model
-- **Python 3.9+**: Programming language
+- **Python 3.12**: Programming language
+
+### Backend API
+
+- **FastAPI**: Modern, fast web framework
+- **Uvicorn**: ASGI server
+- **Docker**: Containerization
 
 ## 📊 Model Performance
 
@@ -60,7 +72,7 @@ The deep learning model demonstrates excellent classification performance:
 
 - **Training Accuracy**: ~95%
 - **Validation Accuracy**: ~90%
-- **Model Size**: ~9MB (optimized for deployment)
+- **Model Size**: ~13MB (optimized for deployment)
 - **Inference Time**: <200ms per image
 
 ![Training Results](model_training/first_train.png)
@@ -80,8 +92,44 @@ python prepare_data.py
 python train.py
 ```
 
-### 2. API Development 🔄 (In Progress)
+**Key Features:**
 
-FastAPI backend development for serving the trained model.
+- Transfer learning with MobileNetV2
+- Data preparation and augmentation
+- Model training and validation
+- Model export and optimization
+
+### 2. API Development ✅ (Completed)
+
+FastAPI backend development for serving the trained model with REST endpoints.
+
+**Setup:**
+
+```bash
+cd api
+pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+**Key Features:**
+
+- RESTful API with FastAPI
+- Real-time image classification
+- Automatic image preprocessing
+- Docker containerization
+- CORS support for web integration
+- Interactive API documentation (Swagger UI)
+
+**Docker Deployment:**
+
+```bash
+cd api
+docker build -t dog-classifier-api .
+docker run -p 8000:8000 dog-classifier-api
+```
+
+### 3. Frontend Development 🔄 (In Progress)
+
+Modern web interface for user interaction with the AI model.
 
 ---

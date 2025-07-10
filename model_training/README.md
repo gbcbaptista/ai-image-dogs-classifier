@@ -10,18 +10,16 @@ A deep learning project for classifying dog breeds using TensorFlow and Keras wi
 
 ## Overview
 
-This project implements a convolutional neural network (CNN) for dog breed classification using MobileNetV2 as the base model with transfer learning. The model can classify images into 8 different dog breeds with high accuracy.
+This project implements a convolutional neural network (CNN) for dog breed classification using MobileNetV2 as the base model with transfer learning. The model can classify images into 6 different dog breeds with high accuracy.
 
 ## Supported Dog Breeds
 
-The model is trained to recognize the following 8 dog breeds:
+The model is trained to recognize the following 6 dog breeds:
 
 - **Beagle**
-- **Bulldog**
 - **Chihuahua**
 - **German Shepherd**
 - **Golden Retriever**
-- **Poodle**
 - **Pug**
 - **Siberian Husky**
 
@@ -57,11 +55,9 @@ data/
 │   └── labels.csv         # Image labels mapping
 └── dataset/               # Curated dataset (created by prepare_data.py)
     ├── beagle/
-    ├── bulldog/
     ├── chihuahua/
     ├── german_shepherd/
     ├── golden_retriever/
-    ├── poodle/
     ├── pug/
     └── siberian_husky/
 ```
@@ -70,7 +66,7 @@ data/
 
 The `prepare_data.py` script performs the following tasks:
 
-1. **Filters the dataset** to include only the 8 selected dog breeds
+1. **Filters the dataset** to include only the 6 selected dog breeds
 2. **Creates organized directories** for each breed
 3. **Copies relevant images** from the original dataset to the new structure
 4. **Removes any existing dataset** directory before creating a new one
@@ -93,7 +89,7 @@ The `prepare_data.py` script performs the following tasks:
 
 - **Global Average Pooling:** Reduces feature map dimensions
 - **Dropout Layer:** 0.2 dropout rate for regularization
-- **Dense Output Layer:** 8 units with softmax activation (one for each breed)
+- **Dense Output Layer:** 6 units with softmax activation (one for each breed)
 
 ### Model Configuration
 
