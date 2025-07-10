@@ -10,16 +10,16 @@ A complete end-to-end solution for dog breed classification using artificial int
 
 ## 🚧 Project Status
 
-| Step | Component      | Status         |
-| ---- | -------------- | -------------- |
-| 1    | Model Training | ✅ Completed   |
-| 2    | API            | ✅ Completed   |
-| 3    | Frontend       | 🔄 In Progress |
-| 4    | Deploy AWS     | ⏳ Pending     |
+| Step | Component      | Status       | Link                                    |
+| ---- | -------------- | ------------ | --------------------------------------- |
+| 1    | Model Training | ✅ Completed | [📁 model_training/](./model_training/) |
+| 2    | API            | ✅ Completed | [📁 api/](./api/)                       |
+| 3    | Frontend       | ✅ Completed | [📁 ui/](./ui/)                         |
+| 4    | Deploy AWS     | ⏳ Pending   | -                                       |
 
 ## 🎯 Project Overview
 
-This project implements a full-stack AI-powered application that can classify dog breeds from uploaded images. The system combines machine learning, modern web technologies, and cloud infrastructure to deliver a seamless user experience.
+This project implements a full-stack AI-powered application that can classify dog breeds from uploaded images. The system combines machine learning, modern web technologies, and cloud infrastructure to deliver a seamless user experience with multilingual support (English and Portuguese).
 
 ## 🐕 Supported Dog Breeds
 
@@ -49,7 +49,15 @@ ai-image-dogs-classifier/
 │   │   ├── dog_classifier.keras
 │   │   └── labels.json
 │   └── README.md         # API documentation
-└── README.md             # This file
+├── ui/                     # Frontend Web Interface
+│   ├── package.json       # Node.js dependencies
+│   ├── src/
+│   │   ├── app/           # Next.js App Router pages
+│   │   ├── components/    # React components
+│   │   ├── contexts/      # React contexts
+│   │   └── store/         # State management
+│   └── README.md          # Frontend documentation
+└── README.md              # This file
 ```
 
 ## 🚀 Technology Stack
@@ -66,16 +74,24 @@ ai-image-dogs-classifier/
 - **Uvicorn**: ASGI server
 - **Docker**: Containerization
 
+### Frontend
+
+- **Next.js 15**: React framework with App Router
+- **React 19**: UI library
+- **TypeScript**: Type safety
+- **Tailwind CSS**: Utility-first CSS framework
+- **Framer Motion**: Animation library
+
 ## 📊 Model Performance
 
 The deep learning model demonstrates excellent classification performance:
 
-- **Training Accuracy**: ~95%
-- **Validation Accuracy**: ~90%
+- **Training Accuracy**: ~99%
+- **Validation Accuracy**: ~97%
 - **Model Size**: ~13MB (optimized for deployment)
 - **Inference Time**: <200ms per image
 
-![Training Results](model_training/first_train.png)
+![Training Results](model_training/second_train.png)
 
 ## 🛠️ Development Steps
 
@@ -95,6 +111,7 @@ python train.py
 **Key Features:**
 
 - Transfer learning with MobileNetV2
+- Enhanced architecture with batch normalization
 - Data preparation and augmentation
 - Model training and validation
 - Model export and optimization
@@ -128,8 +145,30 @@ docker build -t dog-classifier-api .
 docker run -p 8000:8000 dog-classifier-api
 ```
 
-### 3. Frontend Development 🔄 (In Progress)
+### 3. Frontend Development ✅ (Completed)
 
-Modern web interface for user interaction with the AI model.
+Modern web interface built with Next.js and React for user interaction with the AI model.
+
+**Setup:**
+
+```bash
+cd ui
+npm install
+npm run dev
+```
+
+**Key Features:**
+
+- Modern UI/UX with responsive design
+- Drag & drop image upload
+- Real-time classification results
+- Multilingual support (English/Portuguese)
+- Interactive breed information
+- Smooth animations and transitions
+
+**Access:**
+
+- Development: `http://localhost:3000`
+- API Documentation: `http://localhost:8000/docs`
 
 ---
