@@ -50,13 +50,12 @@ async def predict(file: UploadFile = File(...)):
   contents= await file.read()
   processed_image = process_image(contents)
   predictions = model.predict(processed_image)
-  print(predictions)
 
   predicted_index = np.argmax(predictions, axis=1)[0]
   predicted_breed = class_names[predicted_index]
   confidence = float(predictions[0][predicted_index])
 
   return {
-        "breed": predicted_breed,
-        "confidence": f"{confidence:.2%}"
-    }
+    "breed": predicted_breed,
+    "confidence": f"{confidence:.2%}"
+  }
