@@ -65,6 +65,12 @@ const MobileMenuSidebar = (props: MobileMenuSidebarProps) => {
           >
             {t("about")}
           </Link>
+          <a
+            href="https://gabriel-baptista.dev/"
+            className="block text-lg font-medium text-primary hover:text-accent transition-colors"
+          >
+            {t("portfolio")}
+          </a>
         </nav>
       </div>
     </div>

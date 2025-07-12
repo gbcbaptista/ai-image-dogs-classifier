@@ -54,7 +54,7 @@ const Header = () => {
                   <h1 className="text-xl font-bold text-primary pr-2">
                     {t("title")}
                   </h1>
-                  <p className="text-sm text-secondary hidden md:block">
+                  <p className="text-sm text-secondary hidden xl:block">
                     {t("subtitle")}
                   </p>
                 </div>
@@ -83,6 +83,12 @@ const Header = () => {
                 >
                   {t("about")}
                 </Link>
+                <a
+                  href="https://gabriel-baptista.dev/"
+                  className="text-primary hover:text-accent transition-colors"
+                >
+                  {t("portfolio")}
+                </a>
               </nav>
               <LanguageSelector />
 

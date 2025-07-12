@@ -8,6 +8,7 @@ export const translations = {
     home: "Home",
     about: "About",
     howItWorks: "How It Works",
+    portfolio: "Portfolio Hub",
 
     // Language Selector
     language: "Language",
@@ -102,6 +103,7 @@ export const translations = {
     home: "Início",
     about: "Sobre",
     howItWorks: "Como Funciona",
+    portfolio: "Portfolio Hub",
 
     // Language Selector
     language: "Idioma",
