@@ -143,6 +143,7 @@ jobs:
           docker buildx build \
             --push \
             --platform linux/amd64 \
+            --build-arg NEXT_PUBLIC_API_URL=${{ secrets.PROD_API_URL }} \
             --cache-from type=gha \
             --cache-to type=gha,mode=max \
             --tag $ECR_REGISTRY/$ECR_REPOSITORY_UI:$IMAGE_TAG \
