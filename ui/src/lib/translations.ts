@@ -95,7 +95,7 @@ export const translations = {
   },
   pt: {
     // Header
-    title: "Classificador de Raças de Cães com IA",
+    title: "Identifique raças com IA",
     subtitle: "Identifique a raça do seu cão com inteligência artificial",
 
     // Navigation

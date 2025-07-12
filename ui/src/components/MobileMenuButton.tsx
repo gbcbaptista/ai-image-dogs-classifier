@@ -8,7 +8,7 @@ const MobileMenuButton = (props: MobileMenuButtonProps) => {
   return (
     <button
       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-      className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors"
+      className="lg:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors"
       aria-label="Toggle mobile menu"
     >
       <div className="w-6 h-6 flex flex-col justify-center items-center">

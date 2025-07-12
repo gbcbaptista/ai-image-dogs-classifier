@@ -51,10 +51,10 @@ const Header = () => {
                   <span className="text-2xl">🐕</span>
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-primary">
+                  <h1 className="text-xl font-bold text-primary pr-2">
                     {t("title")}
                   </h1>
-                  <p className="text-sm text-secondary hidden sm:block">
+                  <p className="text-sm text-secondary hidden md:block">
                     {t("subtitle")}
                   </p>
                 </div>
@@ -62,7 +62,7 @@ const Header = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <nav className="hidden md:flex items-center gap-6">
+              <nav className="hidden lg:flex items-center gap-6">
                 <Link
                   href="/"
                   className={`transition-colors ${getLinkClass("/")}`}
