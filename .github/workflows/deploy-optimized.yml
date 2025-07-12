@@ -94,10 +94,14 @@ jobs:
           container-name: ${{ env.CONTAINER_NAME_API }}
           image: ${{ steps.build-image.outputs.image }}
 
+      - name: Clean up task definition
+        run: |
+          jq 'del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy, .enableFaultInjection)' ${{ steps.task-def.outputs.task-definition }} > api-task-definition-clean.json
+
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          task-definition: api-task-definition-clean.json
           service: ${{ env.ECS_SERVICE_API }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
@@ -160,10 +164,14 @@ jobs:
           container-name: ${{ env.CONTAINER_NAME_UI }}
           image: ${{ steps.build-image.outputs.image }}
 
+      - name: Clean up task definition
+        run: |
+          jq 'del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy, .enableFaultInjection)' ${{ steps.task-def.outputs.task-definition }} > ui-task-definition-clean.json
+
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          task-definition: ui-task-definition-clean.json
           service: ${{ env.ECS_SERVICE_UI }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
