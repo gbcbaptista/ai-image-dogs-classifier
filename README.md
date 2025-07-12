@@ -10,12 +10,12 @@ A complete end-to-end solution for dog breed classification using artificial int
 
 ## 🚧 Project Status
 
-| Step | Component      | Status       | Link                                    |
-| ---- | -------------- | ------------ | --------------------------------------- |
-| 1    | Model Training | ✅ Completed | [📁 model_training/](./model_training/) |
-| 2    | API            | ✅ Completed | [📁 api/](./api/)                       |
-| 3    | Frontend       | ✅ Completed | [📁 ui/](./ui/)                         |
-| 4    | Deploy AWS     | ⏳ Pending   | -                                       |
+| Step | Component          | Status       | Link                                    |
+| ---- | ------------------ | ------------ | --------------------------------------- |
+| 1    | Model Training     | ✅ Completed | [📁 model_training/](./model_training/) |
+| 2    | API                | ✅ Completed | [📁 api/](./api/)                       |
+| 3    | Frontend           | ✅ Completed | [📁 ui/](./ui/)                         |
+| 4    | Deploy AWS + CI/CD | ⏳ Pending   | -                                       |
 
 ## 🎯 Project Overview
 
