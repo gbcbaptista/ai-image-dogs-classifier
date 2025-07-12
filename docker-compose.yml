@@ -9,10 +9,10 @@ services:
   frontend:
     build:
       context: ./ui
+      args:
+        - NEXT_PUBLIC_API_URL=/api
     container_name: dog-classifier-ui
     restart: unless-stopped
-    environment:
-      - NEXT_PUBLIC_API_URL=/api/predict
 
   proxy:
     image: nginx:latest
