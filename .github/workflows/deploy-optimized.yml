@@ -15,8 +15,8 @@ env:
   ECS_CLUSTER: dog-classifier-cluster
   ECS_TASK_DEFINITION_API: api-task-def
   ECS_TASK_DEFINITION_UI: ui-task-def
-  CONTAINER_NAME_API: dog-classifier-api-container
-  CONTAINER_NAME_UI: dog-classifier-ui-container
+  CONTAINER_NAME_API: dog-classifier-api
+  CONTAINER_NAME_UI: dog-classifier-ui
 
 jobs:
   detect-changes:
