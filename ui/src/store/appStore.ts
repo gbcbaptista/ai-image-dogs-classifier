@@ -1,5 +1,5 @@
+import requests from "@/requests";
 import { create } from "zustand";
-const API_URL = "http://localhost:8000/api/predict";
 
 interface AppState {
   imageFile: File | null;
@@ -36,16 +36,11 @@ export const useAppStore = create<AppState & AppActions>((set, get) => ({
       result: null,
     });
 
-    // 2. Criar um objeto FormData para enviar o arquivo
     const formData = new FormData();
-    formData.append("file", file); // A chave 'file' deve corresponder ao nome no endpoint FastAPI
+    formData.append("file", file);
 
     try {
-      // 3. Fazer a chamada fetch para a API
-      const response = await fetch(API_URL, {
-        method: "POST",
-        body: formData,
-      });
+      const response = await requests.classifyDog(formData);
 
       if (!response.ok) {
         throw new Error("A resposta da rede não foi bem-sucedida.");
@@ -53,11 +48,9 @@ export const useAppStore = create<AppState & AppActions>((set, get) => ({
 
       const data = await response.json();
 
-      // 4. Atualizar o estado com os dados recebidos da API
       get().setResult(data);
     } catch (error) {
       console.error("Erro ao classificar a imagem:", error);
-      // Em caso de erro, podemos resetar o estado para o usuário tentar novamente
       get().reset();
     }
   },
