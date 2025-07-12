@@ -6,7 +6,7 @@ const requests = {
       throw new Error("API URL not configured in environment variables.");
     }
 
-    return await fetch(apiUrl, {
+    return await fetch(`${apiUrl}/predict`, {
       method: "POST",
       body: formData,
     });
