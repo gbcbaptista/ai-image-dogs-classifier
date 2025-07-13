@@ -36,17 +36,13 @@ export const useAppStore = create<AppState & AppActions>((set, get) => ({
       result: null,
     });
 
-    const formData = new FormData();
-    formData.append("file", file);
-
     try {
-      const { response, processed } = await requests.classifyDog(file);
+      const response = await requests.classifyDog(file);
 
       if (!response.ok) {
         throw new Error("An error ocurred while processing the image");
       }
 
-      console.log(processed);
       const data = await response.json();
 
       get().setResult(data);
