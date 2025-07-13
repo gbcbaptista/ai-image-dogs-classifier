@@ -1,12 +1,12 @@
 const requests = {
   classifyDog: async (formData: FormData) => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    // const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-    if (!apiUrl) {
-      throw new Error("API URL not configured in environment variables.");
-    }
+    // if (!apiUrl) {
+    //   throw new Error("API URL not configured in environment variables.");
+    // }
 
-    return await fetch(`${apiUrl}/predict`, {
+    return await fetch(`api/predict`, {
       method: "POST",
       body: formData,
     });
