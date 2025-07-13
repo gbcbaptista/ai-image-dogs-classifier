@@ -45,7 +45,7 @@ jobs:
           docker push $ECR_REGISTRY/${{ secrets.ECR_REPOSITORY_UI }}:latest
 
   deploy-to-lightsail:
-    needs: build-and-push # Este job só roda depois que o de cima for bem-sucedido
+    needs: build-and-push
     runs-on: ubuntu-latest
 
     steps:
@@ -56,27 +56,20 @@ jobs:
           username: ${{ secrets.LIGHTSAIL_SSH_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
-            # Navega para o diretório do projeto
             cd ~/ai-image-dogs-classifier
 
-            # Puxa o docker-compose.yml mais recente (se houver mudanças)
             git pull origin main
 
-            # Configura as credenciais da AWS para a instância poder acessar o ECR
             aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws configure set region ${{ secrets.AWS_REGION }}
 
-            # Autentica o Docker da instância no ECR
             aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
 
-            # Baixa as novas imagens do ECR
             docker-compose pull
 
-            # Reinicia os serviços com as novas imagens
-            docker-compose up -d
+            docker-compose up -d --force-recreate
 
-            # Limpa imagens antigas
-            docker image prune -f
+            docker image prune -af
 
             echo ">>> Deployment to Lightsail finished successfully! <<<"
