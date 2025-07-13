@@ -1,4 +1,4 @@
-import requests from "@/requests";
+import requests from "@/utils/imageProcessing";
 import { create } from "zustand";
 
 interface AppState {
@@ -40,12 +40,13 @@ export const useAppStore = create<AppState & AppActions>((set, get) => ({
     formData.append("file", file);
 
     try {
-      const response = await requests.classifyDog(formData);
+      const { response, processed } = await requests.classifyDog(file);
 
       if (!response.ok) {
-        throw new Error("A resposta da rede não foi bem-sucedida.");
+        throw new Error("An error ocurred while processing the image");
       }
 
+      console.log(processed);
       const data = await response.json();
 
       get().setResult(data);
