@@ -22,7 +22,7 @@ export default function RootLayout({
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);
@@ -36,7 +36,6 @@ export default function RootLayout({
       <LanguageProvider>
         <body className={`${poppins.className} bg-bg cursor-default`}>
           <div className={`loading-overlay ${!loading ? "hidden" : ""}`}>
-            {/* Você pode adicionar um spinner ou logo aqui se desejar */}
             <div className="loading-spinner"></div>
           </div>
 
