@@ -1,12 +1,12 @@
 services:
   api:
-    image: ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY_API }}:latest
+    image: ${ECR_REGISTRY}/${ECR_REPOSITORY_API}:latest
     container_name: dog-classifier-api
     restart: unless-stopped
     command: uvicorn main:app --host 0.0.0.0 --port 8000
 
   frontend:
-    image: ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY_UI }}:latest
+    image: ${ECR_REGISTRY}/${ECR_REPOSITORY_UI}:latest
     container_name: dog-classifier-ui
     restart: unless-stopped
 

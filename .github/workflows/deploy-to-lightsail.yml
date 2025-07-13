@@ -60,16 +60,24 @@ jobs:
 
             git pull origin main
 
+            cat > .env << EOF
+            ECR_REGISTRY=${{ secrets.ECR_REGISTRY }}
+            ECR_REPOSITORY_API=${{ secrets.ECR_REPOSITORY_API }}
+            ECR_REPOSITORY_UI=${{ secrets.ECR_REPOSITORY_UI }}
+            EOF
+
             aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws configure set region ${{ secrets.AWS_REGION }}
 
             aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
 
+            docker-compose down
+
+            docker image prune -af
+
             docker-compose pull
 
             docker-compose up -d --force-recreate
-
-            docker image prune -af
 
             echo ">>> Deployment to Lightsail finished successfully! <<<"
