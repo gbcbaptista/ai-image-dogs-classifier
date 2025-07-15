@@ -14,9 +14,9 @@ A complete end-to-end solution for dog breed classification using artificial int
 
 | Step | Component | Status | Link |
 | :--- | :--- | :--- | :--- |
-| 1 | Model Training | ✅ Completed | [📁 model_training/](./model_training/) |
-| 2 | API | ✅ Completed | [📁 api/](./api/) |
-| 3 | Frontend | ✅ Completed | [📁 ui/](./ui/) |
+| 1 | Model Training | ✅ Completed | [📁 model_training/](./model_training) |
+| 2 | API | ✅ Completed | [📁 api/](./api) |
+| 3 | Frontend | ✅ Completed | [📁 ui/](./ui) |
 | 4 | AWS Deploy + CI/CD | ✅ Completed | [📄 .github/workflows/deploy-to-lightsail.yml](./.github/workflows/deploy-to-lightsail.yml) |
 
 -----
