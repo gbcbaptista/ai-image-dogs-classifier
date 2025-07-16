@@ -14,10 +14,10 @@ A complete end-to-end solution for dog breed classification using artificial int
 
 | Step | Component | Status | Link |
 | :--- | :--- | :--- | :--- |
-| 1 | Model Training | ✅ Completed | [📁 model\_training/](https://www.google.com/search?q=./model_training/) |
-| 2 | API | ✅ Completed | [📁 api/](https://www.google.com/search?q=./api/) |
-| 3 | Frontend | ✅ Completed | [📁 ui/](https://www.google.com/search?q=./ui/) |
-| 4 | AWS Deploy + CI/CD | ✅ Completed | [📄 .github/workflows/deploy-to-lightsail.yml](https://www.google.com/search?q=./.github/workflows/deploy-to-lightsail.yml) |
+| 1 | Model Training | ✅ Completed | [📁 model_training/](./model_training) |
+| 2 | API | ✅ Completed | [📁 api/](./api) |
+| 3 | Frontend | ✅ Completed | [📁 ui/](./ui) |
+| 4 | AWS Deploy + CI/CD | ✅ Completed | [📄 .github/workflows/deploy-to-lightsail.yml](./.github/workflows/deploy-to-lightsail.yml) |
 
 -----
 
