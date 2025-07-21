@@ -15,6 +15,9 @@ export default function Home() {
           {!result ? <ImageUpload /> : <ResultDisplay />}
         </div>
       </section>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SupportedBreeds />
+      </div>
       <section className="pt-12 lg:pt-20 w-full">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tips />
