@@ -14,7 +14,7 @@ const Tips = () => {
   ];
 
   return (
-    <div className="pt-8 sm:pt-0 px-4 sm:px-6 lg:px-8">
+    <div className="pt-12 lg:pt-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
